@@ -1,3 +1,6 @@
 [submodule "output"]
 	path = output
 	url = https://github.com/nekopy/nekopy.github.io.git
+[submodule "output/output"]
+	path = output/output
+	url = https://github.com/nekopy/nekopy.github.io.git
