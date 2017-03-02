@@ -31,7 +31,7 @@
 <link rel="dns-prefetch" href="">
 <link rel="dns-prefetch" href="//code.getmdl.io">
     <link rel="shortcut icon" href="/favicon.ico">
-    <title>neko</title>
+    <title>Hello Internet</title>
 </head>
 <body>
     <div class="eevee-layout mdl-layout mdl-js-layout mdl-color--grey-50">
@@ -92,8 +92,7 @@
                 </div>
                 <div class="eevee-content mdl-color--white mdl-shadow--4dp mdl-color-text--grey-800 mdl-cell mdl-cell--8-col"
                      aria-label="Main content">
-        <article class="eevee-padding" itemscope
-                 itemtype="http://schema.org/BlogPosting">
+    <article itemscope itemtype="http://schema.org/BlogPosting">
 <meta itemprop="accessibilityControl" content="fullKeyboardControl">
 <meta itemprop="accessibilityControl" content="fullMouseControl">
 <meta itemprop="accessibilityControl" content="bookmarks">
@@ -109,35 +108,90 @@
 <meta itemprop="accessibilityAPI" content="ARIA">
     <div itemprop="author" itemscope
          itemtype="https://schema.org/Person" role="presentation">
-        <a href="/author/neko.html" class="hidden"
+        <a href="/author/nekopy.html" class="hidden"
            itemprop="url" role="presentation">
             <span class="hidden" itemprop="name" role="presentation">
-                neko
+                neko.py
             </span>
         </a>
     </div>
         <meta itemprop="keywords"
-              content="thats,awesome">
-        <meta itemprop="keywords" content="yeah">
+              content="pelican,blogging">
+        <meta itemprop="keywords" content="misc">
+    <div class="eevee-meta eevee-share">
+        <div class="mdl-layout-spacer"></div>
+        <div>
+            <ul class="social-share mdl-navigation">
+                <li class="social-share__link social-share__link--twitter">
+                    <a href="https://twitter.com/intent/tweet?text=Hello%20Internet&amp;url=/hello.html"
+                       title="Share 'Hello Internet' on Twitter"
+                       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235'); return false;">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="social-share__link social-share__link--facebook">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=/hello.html"
+                       title="Share 'Hello Internet' on Facebook"
+                       onclick="window.open(this.href, 'facebook-share', 'width=580,height=296'); return false;">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="social-share__link social-share__link--google-plus">
+                    <a href="https://plus.google.com/share?url=/hello.html"
+                       title="Share 'Hello Internet' on Google+"
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                        <i class="fa fa-google" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="social-share__link social-share__link--email">
+                    <a href="mailto:?subject=Hello%20Internet&amp;body=Hello%20Internet%20-%20/hello.html%0A%0Asite%20dedication' via email">
+                        <i class="material-icons" aria-hidden="true">&#xE0E1;</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+        <div class="eevee-article">
             <div class="eevee-meta mdl-color-text--grey-500">
-                <time datetime="2017-02-28T12:28:00-08:00"
+                <time datetime="2017-03-01T21:45:00-08:00"
                       itemprop="datePublished">
-                    Tue 28 February 2017
+                    Wed 01 March 2017
                 </time>
             </div>
-            <h2 itemprop="name" class="article-title">
-                <a href="/first-post.html" rel="bookmark"
-                   title="Permalink to 'Hello Pelican'"
+            <h1 itemprop="name">
+                <a href="/hello.html" rel="bookmark"
+                   title="Permalink to 'Hello Internet'"
                    itemprop="url">
-                Hello Pelican
+                    Hello Internet
                 </a>
-            </h2>
-            <section itemprop="articleBody" class="summary-content">
-                <p class="first last">hey its a dummy post</p>
+            </h1>
+            <section itemprop="articleBody" class="article-content">
+                <p>I plan on using this website to focus output of projects I've identified for myself. This includes various topics including programming, reverse engineering, computer miscellany and potentially electronics, depending on which topics I choose to pursue. </p>
+<p>At the time of writing, I'm a software engineer at a network security company. In my free time I work on game development and occasionally help with the Discord chatbot, Bakabot.</p>
+<p>Some upcoming plans include investigating claims that BetterDiscord steals user tokens, and an attempt to develop a Firefox plugin for ripping soundcloud content. </p>
+<p>Tonight I've been working mostly on configuring my pelican theme. At time of writing, I'm using the eevee theme, which is based on Google's material design philosophy. I tend to be a fan of the google material design look and feel but I'm not sure I'm sold on how it looks for a website. It's very... colorful despite being a minimal theme. My favorite colors tend to be mute earthy things and blues, but eevee insists on using non-hex values for the theme colors. I was hoping to emulate the colors of an espeon in order to continue the pokemon thing, but <a href="https://getmdl.io/customize/index.html">the color picker eevee recommends use of</a> is fairly limited. For whatever reason, pelican seems to want to use reStructured Text instead of the more common markdown by default, so many of the examples are painfully presented in rST. I expect markdown to continue to be the <em>lingua franca</em> of rich text markup, so I'm going to stick with that. Plus it's what discord uses, and it's what Atlassian uses, and gamejolt... basically my whole life.</p>
+<p>Regardless of the text markup, most important to me is how well it can do code blocks, of course. Let's give it a shot...</p>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;This should be a python block&quot;</span><span class="p">)</span> 
+</pre></div>
 
+
+<div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;and a c block&quot;</span><span class="p">);</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;And c++...&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Those look alright? They better or I'm going to have to move to something else.</p>
+<p>Well, after some quick learning, seems like pelican is lying through its gnarly bird teeth about how to do syntax highlighting in markdown. It's apparently the same as it is in Discord; three backticks, the name of the language, a return, then three more backticks:</p>
+<p>```python</p>
+<p>print("shit")</p>
+<p>```</p>
+<p>Like this. Fortunately the <a href="https://en.support.wordpress.com/markdown-quick-reference/">WordPress Markdown quick reference</a> verified for me quickly that it's not just a nuance of discord.</p>
             </section>
-        </article>
-    <div class="eevee-page-spacer" role="presentation"></div>
+        </div>
+    </article>
                 </div>
             </div>
         </main>
@@ -183,9 +237,9 @@
         <h1 class="mdl-mega-footer--heading">Categories</h1>
         <ul class="mdl-mega-footer--link-list">
                 <li>
-                    <a href="/category/yeah.html" itemprop="url"
+                    <a href="/category/misc.html" itemprop="url"
                        rel="bookmark">
-                        yeah
+                        misc
                     </a>
                 </li>
         </ul>
@@ -208,11 +262,6 @@
                         Pelican
                     </a>
                 </li>
-                <li>
-                    <a href="#" itemprop="url" rel="bookmark">
-                        You can modify those links in your config file
-                    </a>
-                </li>
         </ul>
     </div>
 </div>            <div class="mdl-mega-footer--bottom-section">
@@ -230,7 +279,7 @@
         </footer>
     </div>
     <link rel="stylesheet"
-          href="//code.getmdl.io/1.1.3/material.deep_purple-purple.min.css">
+          href="//code.getmdl.io/1.1.3/material.blue_grey-indigo.min.css">
         <link rel="stylesheet" type="text/css"
               href="/theme/css/font-awesome.css">
         <link rel="stylesheet" type="text/css"
