@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stderr</title><link href="https://nekopy.github.io/" rel="alternate"></link><link href="https://nekopy.github.io/feeds/misc.atom.xml" rel="self"></link><id>https://nekopy.github.io/</id><updated>2017-03-01T21:45:00-08:00</updated><entry><title>Hello Internet</title><link href="https://nekopy.github.io/hello.html" rel="alternate"></link><published>2017-03-01T21:45:00-08:00</published><author><name>neko.py</name></author><id>tag:nekopy.github.io,2017-03-01:hello.html</id><summary type="html">&lt;p&gt;I plan on using this website to focus output of projects I've identified for myself. This includes various topics including programming, reverse engineering, computer miscellany and potentially electronics, depending on which topics I choose to pursue. &lt;/p&gt;
+&lt;p&gt;At the time of writing, I'm a software engineer at a network security company. In my free time I work on game development and occasionally help with the Discord chatbot, Bakabot.&lt;/p&gt;
+&lt;p&gt;Some upcoming plans include investigating claims that BetterDiscord steals user tokens, and an attempt to develop a Firefox plugin for ripping soundcloud content. &lt;/p&gt;
+&lt;p&gt;Tonight I've been working mostly on configuring my pelican theme. At time of writing, I'm using the eevee theme, which is based on Google's material design philosophy. I tend to be a fan of the google material design look and feel but I'm not sure I'm sold on how it looks for a website. It's very... colorful despite being a minimal theme. My favorite colors tend to be mute earthy things and blues, but eevee insists on using non-hex values for the theme colors. I was hoping to emulate the colors of an espeon in order to continue the pokemon thing, but &lt;a href="https://getmdl.io/customize/index.html"&gt;the color picker eevee recommends use of&lt;/a&gt; is fairly limited. For whatever reason, pelican seems to want to use reStructured Text instead of the more common markdown by default, so many of the examples are painfully presented in rST. I expect markdown to continue to be the &lt;em&gt;lingua franca&lt;/em&gt; of rich text markup, so I'm going to stick with that. Plus it's what discord uses, and it's what Atlassian uses, and gamejolt... basically my whole life.&lt;/p&gt;
+&lt;p&gt;Regardless of the text markup, most important to me is how well it can do code blocks, of course. Let's give it a shot...&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;This should be a python block&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;and a c block&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;cout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;And c++...&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;endl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Those look alright? They better or I'm going to have to move to something else.&lt;/p&gt;
+&lt;p&gt;Well, after some quick learning, seems like pelican is lying through its gnarly bird teeth about how to do syntax highlighting in markdown. It's apparently the same as it is in Discord; three backticks, the name of the language, a return, then three more backticks:&lt;/p&gt;
+&lt;p&gt;```python&lt;/p&gt;
+&lt;p&gt;print("shit")&lt;/p&gt;
+&lt;p&gt;```&lt;/p&gt;
+&lt;p&gt;Like this. Fortunately the &lt;a href="https://en.support.wordpress.com/markdown-quick-reference/"&gt;WordPress Markdown quick reference&lt;/a&gt; verified for me quickly that it's not just a nuance of discord.&lt;/p&gt;</summary><category term="pelican"></category><category term="blogging"></category></entry></feed>

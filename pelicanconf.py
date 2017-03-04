@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'neko.py'
 SITENAME = u'stderr'
-SITEURL = ''
+SITEURL = 'https://nekopy.github.io'
 
 PATH = 'content'
 
