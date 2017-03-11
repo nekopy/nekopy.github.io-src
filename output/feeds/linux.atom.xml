@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>stderr</title><link href="https://nekopy.github.io/" rel="alternate"></link><link href="https://nekopy.github.io/feeds/linux.atom.xml" rel="self"></link><id>https://nekopy.github.io/</id><updated>2017-03-04T01:51:00-08:00</updated><entry><title>Automatic Driver Building with DKMS</title><link href="https://nekopy.github.io/dkms.html" rel="alternate"></link><published>2017-03-04T01:51:00-08:00</published><author><name>neko.py</name></author><id>tag:nekopy.github.io,2017-03-03:dkms.html</id><summary type="html">&lt;p&gt;Moving to Fedora on my laptop has been a perpetual learning experience. About half a year ago my Windows install died and I wound up getting so mad I left for Fedora. &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>stderr</title><link href="https://nekopy.github.io/" rel="alternate"></link><link href="https://nekopy.github.io/feeds/linux.atom.xml" rel="self"></link><id>https://nekopy.github.io/</id><updated>2017-03-10T21:24:05-08:00</updated><entry><title>Directory Encryption with eCryptfs</title><link href="https://nekopy.github.io/ecryptfs.html" rel="alternate"></link><published>2017-03-10T21:24:05-08:00</published><author><name>neko.py</name></author><id>tag:nekopy.github.io,2017-03-10:ecryptfs.html</id><summary type="html">&lt;p&gt;A couple nights ago I decided to finally get some encryption up and running with eCryptfs.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="eCryptfs Honey Badger Mascot" src="http://ecryptfs.org/img/big-honey-badger.png" /&gt;&lt;/p&gt;
+&lt;p&gt;I have a buddy who's using GPG to do their encryption, however this wasnt really the right choice for me. The primary issue was that the GPG tools I was looking at tend to just deal with a single file. The recommended way of using GPG on folders is to tar them up and encrypt them. To me this approach is really annoying. I dont want to untar some files whenever I want to use them. So after some further digging I wound up coming across the recommendation of using eCryptfs. &lt;/p&gt;
+&lt;p&gt;eCryptfs is, as the name suggests, actually an encrypted filesystem and abstraction layer. The way it works is by introducing a kernel module which handles mounting the encrypted files on disk, and decrypts/encrypts file I/O on the fly. This way, you never actually have files decrypted on disk. Judging from the files, you can even set it up to work on your swap space. &lt;/p&gt;
+&lt;p&gt;The issue I have with it right now is that it's &lt;em&gt;slow&lt;/em&gt;. I'm trying to move some very large files, and it's grinding my laptop to a halt. As you might have seen in my other post, my laptop is relatively chunky. However, since this is overhead, I'm gonna give it the benefit of the doubt and finish moving the files to where I want them before I throw in the towel and try something else. But really, it hurt. I would have written this blog post on the 7th but the kernel module brought even vim to a halt. And since its in the kernel, I can't just hop in and set a good nice value...&lt;/p&gt;
+&lt;p&gt;Anyway, to set it up, it's mega simple. You wanna grab ecryptfs-utils from your package repos. &lt;/p&gt;
+&lt;p&gt;For me, in order to use them I needed to add myself to a new group called ecryptfs.&lt;/p&gt;
+&lt;p&gt;Fun little trick I learned is that once you're in the group, you can get your system to honor the new group without needing to reboot by using the newgrp command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;newgrp ecrypts
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Good stuff. Now that we're all set there, we wanna use the default eCryptfs setup. You do this like so:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ecryptfs-setup-private
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is gonna get you all configured with some new juicy ecryptfs space in a folder called .Private in your home directory and it's going to automatically set up a mount which allows you to access the files in a folder called Private when you login. There's two passwords you set up. One is the normal login password. This should match your account password and will be used for decrypting the folder when you mount it at login time. The other is actually to be used for recovery in case your OS dies or whatever. You can recover ecryptfs stuff using ecryptfs-recover-private in case your OS gets fucked or something. &lt;/p&gt;
+&lt;p&gt;So my next step was obviously to move all my private goodies like accounting records into my new Private folder. And after that, I obviously wanted to protect myself a little by shredding the files that I'd copied in. But there's a problem. I use ext4, which to my understanding is a journaling filesystem. This means that writes arent all done immediately. However, you can flush the journal buffer with the shell command sync. The shred man page says the following goodies:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;CAUTION: Note that shred relies on a very important assumption: that the file system over‐
+ writes data in place.  This is the traditional way to do things, but many modern file sys‐
+ tem designs do not satisfy this assumption.  The following are examples of file systems on
+ which shred is not effective, or is not guaranteed to be  effective  in  all  file  system
+ modes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;log-structured  or  journaled file systems, such as those supplied with AIX and Solaris (and JFS, ReiserFS, XFS, Ext3, etc.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;file systems that write redundant data and carry on even if some writes  fail,  such  as RAID-based file systems&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;file systems that make snapshots, such as Network Appliance's NFS server&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;file systems that cache in temporary locations, such as NFS version 3 clients&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;compressed file systems&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In  the case of ext3 file systems, the above disclaimer applies (and shred is thus of lim‐
+ ited effectiveness) only in data=journal mode, which journals file  data  in  addition  to
+ just  metadata.   In both the data=ordered (default) and data=writeback modes, shred works
+ as usual.  Ext3 journaling modes can be changed by adding the data=something option to the
+ mount  options  for  a particular file system in the /etc/fstab file, as documented in the
+ mount man page (man mount).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And there's a lot of internet paranoia on the same subject. However someone out there made a good point... A journaling filesystem will only journal for a little while. We can forcibly flush that using a sync. They proposed the following code which should flush the shred before deleting it. I wrapped it all up nice in a shell function.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;jshred&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        shred -v -n &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;$1&lt;/span&gt;
+        sync
+        shred -v -n &lt;span class="m"&gt;0&lt;/span&gt; -z -u &lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is going to nuke the file with random garbage before deleting it. &lt;/p&gt;
+&lt;p&gt;I've got a lot of crap to move into my encrypted folder and I wanna get to playing games tonight, so I think that's enough for one night.&lt;/p&gt;</summary><category term="ecryptfs"></category><category term="shred"></category><category term="linux"></category><category term="encryption"></category><category term="security"></category><category term="privacy"></category></entry><entry><title>Automatic Driver Building with DKMS</title><link href="https://nekopy.github.io/dkms.html" rel="alternate"></link><published>2017-03-04T01:51:00-08:00</published><author><name>neko.py</name></author><id>tag:nekopy.github.io,2017-03-03:dkms.html</id><summary type="html">&lt;p&gt;Moving to Fedora on my laptop has been a perpetual learning experience. About half a year ago my Windows install died and I wound up getting so mad I left for Fedora. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;           &lt;span class="s s-Atom"&gt;/:-------------:\&lt;/span&gt;          &lt;span class="s s-Atom"&gt;neko@&lt;/span&gt;&lt;span class="nf"&gt;catbox&lt;/span&gt;
         &lt;span class="o"&gt;:-&lt;/span&gt;&lt;span class="s s-Atom"&gt;------------------::&lt;/span&gt;        &lt;span class="nv"&gt;OS&lt;/span&gt;&lt;span class="s s-Atom"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;Fedora&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt; &lt;span class="nv"&gt;TwentyFive&lt;/span&gt;
       &lt;span class="p"&gt;:-&lt;/span&gt;&lt;span class="s s-Atom"&gt;----------/shhOHbmp---:\&lt;/span&gt;      &lt;span class="nv"&gt;Kernel&lt;/span&gt;&lt;span class="s s-Atom"&gt;:&lt;/span&gt; &lt;span class="s s-Atom"&gt;x86_64&lt;/span&gt; &lt;span class="nv"&gt;Linux&lt;/span&gt; &lt;span class="mf"&gt;4.9.12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;200.&lt;/span&gt;&lt;span class="s s-Atom"&gt;fc25&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s s-Atom"&gt;x86_64&lt;/span&gt;
@@ -31,7 +90,7 @@ cp -R ~/rtl8814AU/* /usr/src/rtl8814AU-4.3.21
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Where the folder you make is in &lt;code&gt;$(module-name)-$(module-version)&lt;/code&gt; format. Then we're gonna add a dkms.conf file at the top level of that folder, and fill it with the appropriate content:&lt;/p&gt;
+&lt;p&gt;Where the folder you make is in $(module-name)-$(module-version) format. Then we're gonna add a dkms.conf file at the top level of that folder, and fill it with the appropriate content:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="na"&gt;PACKAGE_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;rtl8814AU&amp;quot;&lt;/span&gt;
 &lt;span class="na"&gt;PACKAGE_VERSION&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;4.3.21&amp;quot;&lt;/span&gt;
 &lt;span class="na"&gt;BUILT_MODULE_NAME[0]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;8814au&amp;quot;&lt;/span&gt;

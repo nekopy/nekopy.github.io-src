@@ -31,7 +31,7 @@
 <link rel="dns-prefetch" href="https://nekopy.github.io">
 <link rel="dns-prefetch" href="//code.getmdl.io">
     <link rel="shortcut icon" href="https://nekopy.github.io/favicon.ico">
-    <title>Automatic Driver Building with DKMS</title>
+    <title>Articles with the 'encryption' tag</title>
 </head>
 <body>
     <div class="eevee-layout mdl-layout mdl-js-layout mdl-color--grey-50">
@@ -92,7 +92,8 @@
                 </div>
                 <div class="eevee-content mdl-color--white mdl-shadow--4dp mdl-color-text--grey-800 mdl-cell mdl-cell--8-col"
                      aria-label="Main content">
-    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="eevee-padding" itemscope
+                 itemtype="http://schema.org/BlogPosting">
 <meta itemprop="accessibilityControl" content="fullKeyboardControl">
 <meta itemprop="accessibilityControl" content="fullMouseControl">
 <meta itemprop="accessibilityControl" content="bookmarks">
@@ -116,114 +117,26 @@
         </a>
     </div>
         <meta itemprop="keywords"
-              content="DKMS,linux,kernel modules,Fedora">
+              content="ecryptfs,shred,linux,encryption,security,privacy">
         <meta itemprop="keywords" content="linux">
-    <div class="eevee-meta eevee-share">
-        <div class="mdl-layout-spacer"></div>
-        <div>
-            <ul class="social-share mdl-navigation">
-                <li class="social-share__link social-share__link--twitter">
-                    <a href="https://twitter.com/intent/tweet?text=Automatic%20Driver%20Building%20with%20DKMS&amp;url=https%3A//nekopy.github.io/dkms.html"
-                       title="Share 'Automatic Driver Building with DKMS' on Twitter"
-                       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235'); return false;">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li class="social-share__link social-share__link--facebook">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//nekopy.github.io/dkms.html"
-                       title="Share 'Automatic Driver Building with DKMS' on Facebook"
-                       onclick="window.open(this.href, 'facebook-share', 'width=580,height=296'); return false;">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li class="social-share__link social-share__link--google-plus">
-                    <a href="https://plus.google.com/share?url=https%3A//nekopy.github.io/dkms.html"
-                       title="Share 'Automatic Driver Building with DKMS' on Google+"
-                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                        <i class="fa fa-google" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li class="social-share__link social-share__link--email">
-                    <a href="mailto:?subject=Automatic%20Driver%20Building%20with%20DKMS&amp;body=Automatic%20Driver%20Building%20with%20DKMS%20-%20https%3A//nekopy.github.io/dkms.html%0A%0AQuick%20intro%20to%20setting%20up%20DKMS%20for%20from-source%20kernel%20modules.' via email">
-                        <i class="material-icons" aria-hidden="true">&#xE0E1;</i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-        <div class="eevee-article">
             <div class="eevee-meta mdl-color-text--grey-500">
-                <time datetime="2017-03-03T22:22:00-08:00"
+                <time datetime="2017-03-10T21:24:05-08:00"
                       itemprop="datePublished">
-                    Fri 03 March 2017
+                    Fri 10 March 2017
                 </time>
             </div>
-            <h1 itemprop="name">
-                <a href="https://nekopy.github.io/dkms.html" rel="bookmark"
-                   title="Permalink to 'Automatic Driver Building with DKMS'"
+            <h2 itemprop="name" class="article-title">
+                <a href="https://nekopy.github.io/ecryptfs.html" rel="bookmark"
+                   title="Permalink to 'Directory Encryption with eCryptfs'"
                    itemprop="url">
-                    Automatic Driver Building with DKMS
+                Directory Encryption with eCryptfs
                 </a>
-            </h1>
-            <section itemprop="articleBody" class="article-content">
-                <p>Moving to Fedora on my laptop has been a perpetual learning experience. About half a year ago my Windows install died and I wound up getting so mad I left for Fedora. </p>
-<div class="highlight"><pre><span></span>           <span class="s s-Atom">/:-------------:\</span>          <span class="s s-Atom">neko@</span><span class="nf">catbox</span>
-        <span class="o">:-</span><span class="s s-Atom">------------------::</span>        <span class="nv">OS</span><span class="s s-Atom">:</span> <span class="nv">Fedora</span> <span class="mi">25</span> <span class="nv">TwentyFive</span>
-      <span class="p">:-</span><span class="s s-Atom">----------/shhOHbmp---:\</span>      <span class="nv">Kernel</span><span class="s s-Atom">:</span> <span class="s s-Atom">x86_64</span> <span class="nv">Linux</span> <span class="mf">4.9.12</span><span class="o">-</span><span class="mf">200.</span><span class="s s-Atom">fc25</span><span class="p">.</span><span class="s s-Atom">x86_64</span>
-    <span class="s s-Atom">/-----------omMMMNNNMMD</span>  <span class="s s-Atom">---:</span>     <span class="nv">Uptime</span><span class="s s-Atom">:</span> <span class="mi">3</span><span class="s s-Atom">h</span> <span class="mi">49</span><span class="nf">m</span>
-   <span class="o">:-</span><span class="s s-Atom">----------sMMMMNMNMP</span><span class="p">.</span>    <span class="s s-Atom">---:</span>    <span class="nv">Packages</span><span class="s s-Atom">:</span> <span class="mi">2423</span>
-  <span class="p">:-</span><span class="s s-Atom">----------:</span><span class="nv">MMMdP</span><span class="s s-Atom">-------</span>    <span class="s s-Atom">---\</span>   <span class="nv">Shell</span><span class="s s-Atom">:</span> <span class="s s-Atom">zsh</span> <span class="mf">5.2</span>
- <span class="p">,</span><span class="s s-Atom">------------:</span><span class="nv">MMMd</span><span class="s s-Atom">--------</span>    <span class="s s-Atom">---:</span>   <span class="nv">Resolution</span><span class="s s-Atom">:</span> <span class="mi">3600</span><span class="nf">x1080</span>
- <span class="o">:-</span><span class="s s-Atom">-----------:</span><span class="nv">MMMd</span><span class="s s-Atom">-------</span>    <span class="p">.</span><span class="s s-Atom">---:</span>   <span class="nv">WM</span><span class="s s-Atom">:</span> <span class="nf">i3</span>
- <span class="o">:-</span><span class="s s-Atom">---</span>    <span class="s s-Atom">oNMMMMMMMMMNho</span>     <span class="p">.</span><span class="s s-Atom">----:</span>   <span class="nv">CPU</span><span class="s s-Atom">:</span> <span class="nv">Intel</span> <span class="nv">Core</span> <span class="s s-Atom">i7</span><span class="o">-</span><span class="mi">4800</span><span class="nv">MQ</span> <span class="nv">CPU</span> <span class="s s-Atom">@</span> <span class="mf">3.7</span><span class="nv">GHz</span>
- <span class="p">:-</span><span class="o">-</span>     <span class="p">.</span><span class="o">+</span><span class="s s-Atom">shhhMMMmhhy++</span>   <span class="p">.</span><span class="s s-Atom">------/</span>   <span class="nv">GPU</span><span class="s s-Atom">:</span> <span class="nv">Gallium</span> <span class="mf">0.4</span> <span class="s s-Atom">on</span> <span class="nv">NVE6</span>
- <span class="p">:-</span>    <span class="s s-Atom">-------:</span><span class="nv">MMMd</span><span class="s s-Atom">--------------:</span>    <span class="nv">RAM</span><span class="s s-Atom">:</span> <span class="mi">1529</span><span class="nv">MiB</span> <span class="o">/</span> <span class="mi">15970</span><span class="nv">MiB</span>
- <span class="p">:-</span>   <span class="s s-Atom">--------/</span><span class="nv">MMMd</span><span class="s s-Atom">-------------</span><span class="p">;</span>    
- <span class="p">:-</span>    <span class="s s-Atom">------/hMMMy------------:</span>     
- <span class="p">:-</span><span class="o">-</span> <span class="s s-Atom">:dMNdhhdNMMNo------------</span><span class="p">;</span>      
- <span class="p">:-</span><span class="s s-Atom">--:</span><span class="nf">sdNMMMMNds</span><span class="o">:-</span><span class="s s-Atom">-----------:</span>       
- <span class="p">:-</span><span class="s s-Atom">-----:://:-------------::</span>         
- <span class="p">:-</span><span class="s s-Atom">--------------------://</span>           
-</pre></div>
-
-
-<p>Since then I've never looked back. I'm set up to dual-boot with windows, so I still have my games if need be. However one of the biggest issues I had was the incompatiblity of my internal wireless card with available drivers. Instead, I wound up buying myself a usb wireless adapter, which is a pretty mean motherfucker, but it needed me to build the kernel module from source. </p>
-<p>With fedora I get very frequent updates to my kernel, however, and this means very frequently I'll boot up and have no internet, because lo and behold, the kernel updated and I need to rebuild my driver. Oh and it doesnt play nice with NetworkManager either. I had to get down and dirty with nm-cli, but that's a story for another day.</p>
-<p>So today I finally sucked it up and learned how to use DKMS. What DKMS will do (and I always confuse it with DPKG) is automatically rebuild your kernel modules from source when the kernel upgrades.</p>
-<p>Setting it up was extremely simple. I followed a simple tutorial, with only slight modifications.</p>
-<p>First off, copy your kernel source to a new folder under /usr/src</p>
-<div class="highlight"><pre><span></span>su
-mkdir /usr/src/rtl8814AU-4.3.21
-cp -R ~/rtl8814AU/* /usr/src/rtl8814AU-4.3.21
-</pre></div>
-
-
-<p>Where the folder you make is in $(module-name)-$(module-version) format. Then we're gonna add a dkms.conf file at the top level of that folder, and fill it with the appropriate content:</p>
-<div class="highlight"><pre><span></span><span class="na">PACKAGE_NAME</span><span class="o">=</span><span class="s">&quot;rtl8814AU&quot;</span>
-<span class="na">PACKAGE_VERSION</span><span class="o">=</span><span class="s">&quot;4.3.21&quot;</span>
-<span class="na">BUILT_MODULE_NAME[0]</span><span class="o">=</span><span class="s">&quot;8814au&quot;</span>
-<span class="na">DEST_MODULE_LOCATION[0]</span><span class="o">=</span><span class="s">&quot;/kernel/drivers/net/wireless/&quot;</span>
-<span class="na">MAKE[0]</span><span class="o">=</span><span class="s">&quot;make -j12&quot;</span>
-<span class="na">AUTOINSTALL</span><span class="o">=</span><span class="s">&quot;yes&quot;</span>
-</pre></div>
-
-
-<p>Probably the most interesting thing going on here is the value of the MAKE[0] key. This is the command that's gonna be called when DKMS enters your module directory to build up your stuff. In my case, the makefile already has everything it needs to build itself. (Except for two lines being backwards which broke DKMS building... in an 1800 line Makefile... took hours to isolate and fix). By default, DKMS will want to build your project with as many jobs as you have cores. Obviously, I know better than the DKMS authors, and the magic job number is 1.5 times the number of cores you have. In my case, that gives us -j12.</p>
-<p>Once all that's set, just add that sucker to DKMS with</p>
-<div class="highlight"><pre><span></span>dkms add -m rtl8814AU -v 4.3.21
-</pre></div>
-
-
-<p>and test building...</p>
-<div class="highlight"><pre><span></span>dkms build -m rtl8814AU -v 4.3.21
-dkms status
-</pre></div>
-
-
-<p>It's about 2am now. Hopefully next time my kernel builds i wont be totally boned. I'll have to post here to update if I am.</p>
+            </h2>
+            <section itemprop="articleBody" class="summary-content">
+                <p>Encrypting folders on Fedora easily using eCryptfs</p>
             </section>
-        </div>
-    </article>
+        </article>
+    <div class="eevee-page-spacer" role="presentation"></div>
                 </div>
             </div>
         </main>
