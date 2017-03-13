@@ -19,7 +19,11 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),)
+LINKS = (('Pelican', 'http://getpelican.com/'),
+         ('EFF', 'https://www.eff.org/'),
+         ('The Free Software Foundation', 'https://fsf.org/'),
+         ('Creative Commons', 'https://creativecommons.org/'),
+        )
          
 
 # Social widget
