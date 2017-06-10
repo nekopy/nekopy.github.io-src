@@ -9,6 +9,8 @@ Summary: I created a WebExtension that lets you download any song off soundcloud
 
 Hi folks. It's been quite a while since I last wrote a blog post, huh? Well, I've been busy with various projects at home and at work, so cut me some slack. To make it up to you, I've got a treat. [The Soundcloud Liberator browser extension for Firefox]({filename}/assets/plugins/soundcloud_liberator-1.0-an+fx.xpi) 
 
+The source is [available here](https://github.com/nekopy/soundcloud-liberator)
+
 # Usage & Rationale
 
 This Firefox browser plugin allows you to download any track off of soundcloud, regardless of whether the download link is available. The usage is simple. You install the browser plugin, then visit any sound page on soundcloud (as in, the page for a single song). Once you're there, click the new FREE icon in your browser, and it'll open a tab that lets you download the track by saving it with your browser. It doesn't support downloading playlists right now. This browser plugin arose out of my frustration with soundcloud tracks that are uploaded under a Creative Commons license, but had no download link. If a track is Creative Commons, it's meant to be shared, right? I feel like by restricting download of tracks like that, it's against the spirit of the license. This was particularly annoying when I was specifically looking for CC content to use in other projects, and I'd find something great, only for there to be no download link. What's even more annoying is that unless you have some kind of pro account on soundcloud, downloads will be capped after a certain number, so even if a user intended for a song to be universally available, the download might be disabled just because the track had too many downloads already.
