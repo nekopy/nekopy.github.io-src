@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 AUTHOR = u'neko.py'
 SITENAME = u'stderr'
 SITEURL = 'https://nekopy.github.io'
+#SITEURL = 'http://127.0.0.1:8000'
 
 PATH = 'content'
 
@@ -23,8 +24,7 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
          ('EFF', 'https://www.eff.org/'),
          ('The Free Software Foundation', 'https://fsf.org/'),
          ('Creative Commons', 'https://creativecommons.org/'),
-        )
-         
+        )         
 
 # Social widget
 SOCIAL = (('Bakabot Discord', 'https://discord.gg/Baka'),
@@ -44,3 +44,5 @@ THEME_PRIMARY='blue_grey'
 THEME_ACCENT='indigo'
 
 MENUITEMS = (('Profile', 'https://github.com/nekopy'),)
+
+STATIC_PATHS = [ 'assets' ]

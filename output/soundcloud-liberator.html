@@ -31,7 +31,7 @@
 <link rel="dns-prefetch" href="https://nekopy.github.io">
 <link rel="dns-prefetch" href="//code.getmdl.io">
     <link rel="shortcut icon" href="https://nekopy.github.io/favicon.ico">
-    <title>LUKS vs eCryptfs</title>
+    <title>Soundcloud Liberator</title>
 </head>
 <body>
     <div class="eevee-layout mdl-layout mdl-js-layout mdl-color--grey-50">
@@ -116,35 +116,35 @@
         </a>
     </div>
         <meta itemprop="keywords"
-              content="ecryptfs,luks,linux,encryption,security,privacy">
-        <meta itemprop="keywords" content="linux">
+              content="soundcloud liberator,browser extension,javascript,mp3,soundcloud,m3u,firefox">
+        <meta itemprop="keywords" content="Web Analysis">
     <div class="eevee-meta eevee-share">
         <div class="mdl-layout-spacer"></div>
         <div>
             <ul class="social-share mdl-navigation">
                 <li class="social-share__link social-share__link--twitter">
-                    <a href="https://twitter.com/intent/tweet?text=LUKS%20vs%20eCryptfs&amp;url=https%3A//nekopy.github.io/luks.html"
-                       title="Share 'LUKS vs eCryptfs' on Twitter"
+                    <a href="https://twitter.com/intent/tweet?text=Soundcloud%20Liberator&amp;url=https%3A//nekopy.github.io/soundcloud-liberator.html"
+                       title="Share 'Soundcloud Liberator' on Twitter"
                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235'); return false;">
                         <i class="fa fa-twitter" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li class="social-share__link social-share__link--facebook">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//nekopy.github.io/luks.html"
-                       title="Share 'LUKS vs eCryptfs' on Facebook"
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//nekopy.github.io/soundcloud-liberator.html"
+                       title="Share 'Soundcloud Liberator' on Facebook"
                        onclick="window.open(this.href, 'facebook-share', 'width=580,height=296'); return false;">
                         <i class="fa fa-facebook" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li class="social-share__link social-share__link--google-plus">
-                    <a href="https://plus.google.com/share?url=https%3A//nekopy.github.io/luks.html"
-                       title="Share 'LUKS vs eCryptfs' on Google+"
+                    <a href="https://plus.google.com/share?url=https%3A//nekopy.github.io/soundcloud-liberator.html"
+                       title="Share 'Soundcloud Liberator' on Google+"
                        onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                         <i class="fa fa-google" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li class="social-share__link social-share__link--email">
-                    <a href="mailto:?subject=LUKS%20vs%20eCryptfs&amp;body=LUKS%20vs%20eCryptfs%20-%20https%3A//nekopy.github.io/luks.html%0A%0ATo%20round%20off%20my%20research%20from%20last%20week%2C%20I%27m%20making%20a%20quick%20comparison%20between%20eCryptfs%20and%20LUKS.%20I%20present%20a%20quick%20introduction%20to%20LUKS%2C%20compare%20and%20contrast%20with%20eCryptfs%20and%20discuss%20their%20relative%20strengths.' via email">
+                    <a href="mailto:?subject=Soundcloud%20Liberator&amp;body=Soundcloud%20Liberator%20-%20https%3A//nekopy.github.io/soundcloud-liberator.html%0A%0AI%20created%20a%20WebExtension%20that%20lets%20you%20download%20any%20song%20off%20soundcloud.%20The%20download%20is%20available%20here%2C%20along%20with%20source%2C%20and%20an%20explanation%20of%20how%20I%20developed%20it%2C%20using%20an%20unlisted%20API%20command%20and%20the%20soundcloud%20API.' via email">
                         <i class="material-icons" aria-hidden="true">&#xE0E1;</i>
                     </a>
                 </li>
@@ -153,42 +153,56 @@
     </div>
         <div class="eevee-article">
             <div class="eevee-meta mdl-color-text--grey-500">
-                <time datetime="2017-03-15T20:59:40-07:00"
+                <time datetime="2017-06-10T00:30:00-07:00"
                       itemprop="datePublished">
-                    Wed 15 March 2017
+                    Sat 10 June 2017
                 </time>
             </div>
             <h1 itemprop="name">
-                <a href="https://nekopy.github.io/luks.html" rel="bookmark"
-                   title="Permalink to 'LUKS vs eCryptfs'"
+                <a href="https://nekopy.github.io/soundcloud-liberator.html" rel="bookmark"
+                   title="Permalink to 'Soundcloud Liberator'"
                    itemprop="url">
-                    LUKS vs eCryptfs
+                    Soundcloud Liberator
                 </a>
             </h1>
             <section itemprop="articleBody" class="article-content">
-                <p>Last week, I talked about setting up eCryptfs. I've been happily running it since. However, some of the major disadvantages of the system cropped up very quickly. The major issue I had was that even with eCryptfs I still had some more private documents that I didn't feel comfortable having decrypted whenever I'm logged into the laptop. </p>
-<p>Instead, I grabbed my large external harddrive and made a standard encrypted partion. I selected LUKS + ext4.  The major difference between LUKS and eCryptfs is that eCryptfs files are encrypted on their own, whereas LUKS crypto is applied to the entire partition. This is good and bad. eCryptfs likens themselves to PGP in this way, since the files have everything they need to be decrypted separately. So apparently you could migrate files from one machine to the other without them needing to be encrypted for transport.</p>
-<p>Creating the encrypted partition was dead simple. The GNOME disk utility got me all set up making the partition. Then I just followed the long, slow process of migrating files. However, USB 3.0 made things move pretty quickly...</p>
-<p>Now, I can access the disk only when I want to, decrypting it when I need it rather than all the time.</p>
-<p>My next major interest was identifying how the cipher strength of default LUKS compares with default eCryptfs. So I went off to investigate how to figure out what kind of crypto was being used by each.</p>
-<p>I used some fairly different commands for each. First, let's look at LUKS. Obviously, first make sure you've decrypted your disk.</p>
-<div class="highlight"><pre><span></span>lsblk -f
+                <p>Hi folks. It's been quite a while since I last wrote a blog post, huh? Well, I've been busy with various projects at home and at work, so cut me some slack. To make it up to you, I've got a treat. <a href="https://nekopy.github.io/assets/plugins/soundcloud_liberator-1.0-an+fx.xpi">The Soundcloud Liberator browser extension for Firefox</a> </p>
+<h1>Usage &amp; Rationale</h1>
+<p>This Firefox browser plugin allows you to download any track off of soundcloud, regardless of whether the download link is available. The usage is simple. You install the browser plugin, then visit any sound page on soundcloud (as in, the page for a single song). Once you're there, click the new FREE icon in your browser, and it'll open a tab that lets you download the track by saving it with your browser. It doesn't support downloading playlists right now. This browser plugin arose out of my frustration with soundcloud tracks that are uploaded under a Creative Commons license, but had no download link. If a track is Creative Commons, it's meant to be shared, right? I feel like by restricting download of tracks like that, it's against the spirit of the license. This was particularly annoying when I was specifically looking for CC content to use in other projects, and I'd find something great, only for there to be no download link. What's even more annoying is that unless you have some kind of pro account on soundcloud, downloads will be capped after a certain number, so even if a user intended for a song to be universally available, the download might be disabled just because the track had too many downloads already.</p>
+<h1>Development</h1>
+<p>At first, I had assumed that I'd be able to just look at the network traffic and grab my MP3 and be done with it. In fact, I vaguely remember being able to do this in the past. So I pulled up the network inspector in firefox, filtered it to media files and hit play. What I found was something else entirely. </p>
+<p><img alt="Several Network Requests" src="https://nekopy.github.io/assets/images/network-mess.png" /></p>
+<p>It seems that for some reason, soundcloud splits a file into segments. There's a couple different reasons this might be. For one, this might allow us to do parallelized download. Additionally, this might allow load balancing, or letting really really hot songs be spread across servers. If you picked any one of these URLs out, you could pull it up in a tab, but it'd only be a segment of the song. Let's take a look at one of the actual MP3 urls:</p>
+<div class="highlight"><pre><span></span>https://cf-hls-media.sndcdn.com/media/3352449/3512109/hbsslqcaoE4T.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLWhscy1tZWRpYS5zbmRjZG4uY29tL21lZGlhLyovKi9oYnNzbHFjYW9FNFQuMTI4Lm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTQ5NjQ3NzYwN319fV19&amp;Signature=h8BFZrBB1CHlEss~JTosvMS7alBB7awLVg-O64B~jljrCLdm1wERXceivavohPn42gzDdS9tCCmRovoPma5y6GZ0WqW5QaXUEQAfi-EYSMhtVuIyGgZTZ4h45GweXCpBxtGmzTILao1qj5Xe9n3OgWplYQFeVNFSTOXoxsa8gkRMf~LUddB9qPbQVxMBS8E1cZHQT5bADaYab8mXaRTkNfJAWB6dt7fqynZVKXkqK5Gsa7CoRon08JG2GtvkJt4EXLiOUESgGZtbFe6Ev6eLC0xz6vqu-Vw5DWyax~pMMe2QDqYGvrvWPx3AgH4-0zn2fpeuG2QCkLyrm6V5TjlXzQ__&amp;Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ
 </pre></div>
 
 
-<p>This is going to give you information about the block devices on the system. Importantly, it'll give you the ID of the LUKS partition. We need this in order to query cryptsetup for information about LUKS.</p>
-<div class="highlight"><pre><span></span>cryptsetup status &lt;id&gt;
+<p>Wow that is <em>ugly</em>. Tons of huge CGI nonsense makes this a fairly intimidating URL to look at. However, I quickly noticed a pattern.</p>
+<div class="highlight"><pre><span></span>https://cf-hls-media.sndcdn.com/media/3033128/3192788/hbsslqcaoE4T.128.mp3?Po...
+https://cf-hls-media.sndcdn.com/media/3192789/3352448/hbsslqcaoE4T.128.mp3?P...
+https://cf-hls-media.sndcdn.com/media/3352449/3512109/hbsslqcaoE4T.128.mp3?Polic...
 </pre></div>
 
 
-<p>From this, I'm able to see that my LUKS partition is using AES with a 256-bit key size. That's pretty good. It's FIPS 140-2 compliant, which is pretty good if you trust the NSA. Now how about eCryptfs?</p>
-<div class="highlight"><pre><span></span>mount
+<p>After the media path, there's two numbers, and the number before is always less than the number after, and across URLs in the network log, they're monotonically increasing. Aha! So these aren't some random numbers. They are in fact some kind of units of time. Maybe seconds or samples. So what would happen if we found the URL with the highest ending sample, and replaced its start sample with 0? Like so...</p>
+<div class="highlight"><pre><span></span>https://cf-hls-media.sndcdn.com/media/0/3512109/hbsslqcaoE4T.128.mp3?Polic...
 </pre></div>
 
 
-<p>This shows us all the info we need. Much less work... We can see from the mount attributes that we're also using AES. And the key size is 16 <em>bytes</em>, or 128 bits. So that's AES 128. Not too shabby, but could be better. Initially I misread the keysize as 16 <em>bits</em> and I was kind of terrified for a moment. </p>
-<p>So, you get better encryption with LUKS, <em>and</em> better performance, I believe. When I was moving my stuff into my eCryptfs folder it brought the entire system to a crawl. And since it's going on in the kernel, I couldnt even set a nice value or tune it or anything. Yuck. However I didnt have that issue when moving files to LUKS for some reason, despite it needing to still encrypt the data on the fly. </p>
-<p>So personally, I now have two levels of secure storage. First, there's the eCryptfs mount on my laptop I use for normal stuff. For more sensitive content that I can afford to have off-box, I use LUKS. </p>
+<p>Well I tried it, and lo and behold, we got ourselves the full track, start to finish. What must be going on here is that the server will somehow split up the tracks on request, and serve it back. This doesn't rule out load balancing going on. There are probably replicas with all the data around. Or it could just be some mechanism to stop people from just grabbing the track outright. This totally sucks though. If I want to download a track, I gotta pull up my network view, seek to the end of the track to trigger the last song segment to download, and then patch the URL up. At this poit, I decided it would be a fun exercise to instead make myself a browser plugin to do it for me.</p>
+<p>The first step was to identify how to make a browser plugin. I'm a firefox user, so I immediately went to the Firefox reference, and found <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Intercept_HTTP_requests">this tutorial</a> which covers how to hook HTTP requests and investigate their content. From there, I was able to build a listener for the browser.webRequest.onCompleted event, which I use in my final product. </p>
+<p>The initial idea was to grab each of these ones, find the highest, and associate it with a normal track ID, so i could make sure the request belonged to the page I was visiting. I must admit, I never looked into whether there's separate instances of my listener running for each tab or not, and how the script behaved when the URL you're visiting changes, so instead i use an associative map of track IDs (actually it's mp3 filename, but I'll get into that later) to download links, and when you click on the button, it looks up the track ID in the map to see if the download link is available. The code itself to accomplish this is mostly string manipulation. It isn't particularly interesting. However, in order to index into that map, I need to get the track ID from the current URL. To do this, I need a soundcloud API token. However, the browser accomplishes these calls, and certainly it doesn't have an API token right? </p>
+<p>Well in fact you can just take the token that the browser is using and substitute it in for a developer token. To facilitate this, i use my getClientId to pull it out of the CGI parameters. Very simple.</p>
+<p>An issue quickly manifested itself, in that in order for me to get the highest sample number, the browser needs to make a request for it first. This was lousy, because it meant that in my initial version, the user needed to click on the end of the track in order to trigger the download. However, I found that the full list of audio segments is available in the form of an M3U playlist file that's downloaded by the browser when you visit a page. What's even better is that M3U is a text-based format. You'll see that in my final code, there is no longer any hooks to listen for the HTTP requests for individual songs. Instead, I simply listen for the M3U and parse out the last track, which, being in chronological order, will always have the highest sample in it.</p>
+<p>However, there's one last issue. When we read our M3U file and get the MP3's, we have no way of getting the track ID from the MP3 url, since it has no info like that in it. So we must save the files into our map just by the filename. But there's no way exposed in the public API to go either from an MP3 filename to a track ID or vice-versa. I seemed to be SOL after quite a bit of work... However, after reading through the HTTP requests that are made, I found an interesting API call:</p>
+<div class="highlight"><pre><span></span>/tracks/{trackID}/streams
+</pre></div>
+
+
+<p>This appeared to do exactly what I wanted it to: resolve the URL to the actual mp3 name. However, to request that MP3 file, we still need some magical CGI tokens on the end, so I wasnt able to just use this for anything, however that could be a possibility if I was able to cache the policy token stuff at the end of the files. In fact, using the policy token stuff did work. Apparently it's valid long enough for me to reuse it later. I don't know how long it expires, and eventually it will likely leave my cache stale, for which the liberator currently has no resolution. You have to just refresh the page. </p>
+<p>This magic sauce is used in my resolveStreamInfo function which is used in the process of going from a track ID to a URL, which allows me to index into my map.</p>
+<p>The rest of the code is fairly straightforward. We just wait for the user to click the button, and if they're on a soundcloud song page we try a lookup in our map, and spawn a tab with the full-length mp3 in it.</p>
+<p>That's the long and short of it. I've used the plugin several times now, and it's integrated into my full browser. Hope you enjoy.</p>
             </section>
         </div>
     </article>

@@ -124,12 +124,12 @@ cp -R ~/rtl8814AU/* /usr/src/rtl8814AU-4.3.21
 
 &lt;p&gt;Probably the most interesting thing going on here is the value of the MAKE[0] key. This is the command that's gonna be called when DKMS enters your module directory to build up your stuff. In my case, the makefile already has everything it needs to build itself. (Except for two lines being backwards which broke DKMS building... in an 1800 line Makefile... took hours to isolate and fix). By default, DKMS will want to build your project with as many jobs as you have cores. Obviously, I know better than the DKMS authors, and the magic job number is 1.5 times the number of cores you have. In my case, that gives us -j12.&lt;/p&gt;
 &lt;p&gt;Once all that's set, just add that sucker to DKMS with&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dkms add -m rtl8814AU -v 4.3.21
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dkms add -m rtl8814AU -v &lt;span class="m"&gt;4&lt;/span&gt;.3.21
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;and test building...&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dkms build -m rtl8814AU -v 4.3.21
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dkms build -m rtl8814AU -v &lt;span class="m"&gt;4&lt;/span&gt;.3.21
 dkms status
 &lt;/pre&gt;&lt;/div&gt;
 

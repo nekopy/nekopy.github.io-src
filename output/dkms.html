@@ -210,12 +210,12 @@ cp -R ~/rtl8814AU/* /usr/src/rtl8814AU-4.3.21
 
 <p>Probably the most interesting thing going on here is the value of the MAKE[0] key. This is the command that's gonna be called when DKMS enters your module directory to build up your stuff. In my case, the makefile already has everything it needs to build itself. (Except for two lines being backwards which broke DKMS building... in an 1800 line Makefile... took hours to isolate and fix). By default, DKMS will want to build your project with as many jobs as you have cores. Obviously, I know better than the DKMS authors, and the magic job number is 1.5 times the number of cores you have. In my case, that gives us -j12.</p>
 <p>Once all that's set, just add that sucker to DKMS with</p>
-<div class="highlight"><pre><span></span>dkms add -m rtl8814AU -v 4.3.21
+<div class="highlight"><pre><span></span>dkms add -m rtl8814AU -v <span class="m">4</span>.3.21
 </pre></div>
 
 
 <p>and test building...</p>
-<div class="highlight"><pre><span></span>dkms build -m rtl8814AU -v 4.3.21
+<div class="highlight"><pre><span></span>dkms build -m rtl8814AU -v <span class="m">4</span>.3.21
 dkms status
 </pre></div>
 
@@ -278,6 +278,12 @@ dkms status
                     <a href="https://nekopy.github.io/category/misc.html" itemprop="url"
                        rel="bookmark">
                         misc
+                    </a>
+                </li>
+                <li>
+                    <a href="https://nekopy.github.io/category/web-analysis.html" itemprop="url"
+                       rel="bookmark">
+                        Web Analysis
                     </a>
                 </li>
         </ul>

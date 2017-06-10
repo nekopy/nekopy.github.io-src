@@ -31,7 +31,7 @@
 <link rel="dns-prefetch" href="https://nekopy.github.io">
 <link rel="dns-prefetch" href="//code.getmdl.io">
     <link rel="shortcut icon" href="https://nekopy.github.io/favicon.ico">
-    <title>LUKS vs eCryptfs</title>
+    <title>Articles with the 'soundcloud' tag</title>
 </head>
 <body>
     <div class="eevee-layout mdl-layout mdl-js-layout mdl-color--grey-50">
@@ -92,7 +92,8 @@
                 </div>
                 <div class="eevee-content mdl-color--white mdl-shadow--4dp mdl-color-text--grey-800 mdl-cell mdl-cell--8-col"
                      aria-label="Main content">
-    <article itemscope itemtype="http://schema.org/BlogPosting">
+        <article class="eevee-padding" itemscope
+                 itemtype="http://schema.org/BlogPosting">
 <meta itemprop="accessibilityControl" content="fullKeyboardControl">
 <meta itemprop="accessibilityControl" content="fullMouseControl">
 <meta itemprop="accessibilityControl" content="bookmarks">
@@ -116,82 +117,26 @@
         </a>
     </div>
         <meta itemprop="keywords"
-              content="ecryptfs,luks,linux,encryption,security,privacy">
-        <meta itemprop="keywords" content="linux">
-    <div class="eevee-meta eevee-share">
-        <div class="mdl-layout-spacer"></div>
-        <div>
-            <ul class="social-share mdl-navigation">
-                <li class="social-share__link social-share__link--twitter">
-                    <a href="https://twitter.com/intent/tweet?text=LUKS%20vs%20eCryptfs&amp;url=https%3A//nekopy.github.io/luks.html"
-                       title="Share 'LUKS vs eCryptfs' on Twitter"
-                       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235'); return false;">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li class="social-share__link social-share__link--facebook">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//nekopy.github.io/luks.html"
-                       title="Share 'LUKS vs eCryptfs' on Facebook"
-                       onclick="window.open(this.href, 'facebook-share', 'width=580,height=296'); return false;">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li class="social-share__link social-share__link--google-plus">
-                    <a href="https://plus.google.com/share?url=https%3A//nekopy.github.io/luks.html"
-                       title="Share 'LUKS vs eCryptfs' on Google+"
-                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                        <i class="fa fa-google" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li class="social-share__link social-share__link--email">
-                    <a href="mailto:?subject=LUKS%20vs%20eCryptfs&amp;body=LUKS%20vs%20eCryptfs%20-%20https%3A//nekopy.github.io/luks.html%0A%0ATo%20round%20off%20my%20research%20from%20last%20week%2C%20I%27m%20making%20a%20quick%20comparison%20between%20eCryptfs%20and%20LUKS.%20I%20present%20a%20quick%20introduction%20to%20LUKS%2C%20compare%20and%20contrast%20with%20eCryptfs%20and%20discuss%20their%20relative%20strengths.' via email">
-                        <i class="material-icons" aria-hidden="true">&#xE0E1;</i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-        <div class="eevee-article">
+              content="soundcloud liberator,browser extension,javascript,mp3,soundcloud,m3u,firefox">
+        <meta itemprop="keywords" content="Web Analysis">
             <div class="eevee-meta mdl-color-text--grey-500">
-                <time datetime="2017-03-15T20:59:40-07:00"
+                <time datetime="2017-06-10T00:30:00-07:00"
                       itemprop="datePublished">
-                    Wed 15 March 2017
+                    Sat 10 June 2017
                 </time>
             </div>
-            <h1 itemprop="name">
-                <a href="https://nekopy.github.io/luks.html" rel="bookmark"
-                   title="Permalink to 'LUKS vs eCryptfs'"
+            <h2 itemprop="name" class="article-title">
+                <a href="https://nekopy.github.io/soundcloud-liberator.html" rel="bookmark"
+                   title="Permalink to 'Soundcloud Liberator'"
                    itemprop="url">
-                    LUKS vs eCryptfs
+                Soundcloud Liberator
                 </a>
-            </h1>
-            <section itemprop="articleBody" class="article-content">
-                <p>Last week, I talked about setting up eCryptfs. I've been happily running it since. However, some of the major disadvantages of the system cropped up very quickly. The major issue I had was that even with eCryptfs I still had some more private documents that I didn't feel comfortable having decrypted whenever I'm logged into the laptop. </p>
-<p>Instead, I grabbed my large external harddrive and made a standard encrypted partion. I selected LUKS + ext4.  The major difference between LUKS and eCryptfs is that eCryptfs files are encrypted on their own, whereas LUKS crypto is applied to the entire partition. This is good and bad. eCryptfs likens themselves to PGP in this way, since the files have everything they need to be decrypted separately. So apparently you could migrate files from one machine to the other without them needing to be encrypted for transport.</p>
-<p>Creating the encrypted partition was dead simple. The GNOME disk utility got me all set up making the partition. Then I just followed the long, slow process of migrating files. However, USB 3.0 made things move pretty quickly...</p>
-<p>Now, I can access the disk only when I want to, decrypting it when I need it rather than all the time.</p>
-<p>My next major interest was identifying how the cipher strength of default LUKS compares with default eCryptfs. So I went off to investigate how to figure out what kind of crypto was being used by each.</p>
-<p>I used some fairly different commands for each. First, let's look at LUKS. Obviously, first make sure you've decrypted your disk.</p>
-<div class="highlight"><pre><span></span>lsblk -f
-</pre></div>
-
-
-<p>This is going to give you information about the block devices on the system. Importantly, it'll give you the ID of the LUKS partition. We need this in order to query cryptsetup for information about LUKS.</p>
-<div class="highlight"><pre><span></span>cryptsetup status &lt;id&gt;
-</pre></div>
-
-
-<p>From this, I'm able to see that my LUKS partition is using AES with a 256-bit key size. That's pretty good. It's FIPS 140-2 compliant, which is pretty good if you trust the NSA. Now how about eCryptfs?</p>
-<div class="highlight"><pre><span></span>mount
-</pre></div>
-
-
-<p>This shows us all the info we need. Much less work... We can see from the mount attributes that we're also using AES. And the key size is 16 <em>bytes</em>, or 128 bits. So that's AES 128. Not too shabby, but could be better. Initially I misread the keysize as 16 <em>bits</em> and I was kind of terrified for a moment. </p>
-<p>So, you get better encryption with LUKS, <em>and</em> better performance, I believe. When I was moving my stuff into my eCryptfs folder it brought the entire system to a crawl. And since it's going on in the kernel, I couldnt even set a nice value or tune it or anything. Yuck. However I didnt have that issue when moving files to LUKS for some reason, despite it needing to still encrypt the data on the fly. </p>
-<p>So personally, I now have two levels of secure storage. First, there's the eCryptfs mount on my laptop I use for normal stuff. For more sensitive content that I can afford to have off-box, I use LUKS. </p>
+            </h2>
+            <section itemprop="articleBody" class="summary-content">
+                <p>I created a WebExtension that lets you download any song off soundcloud. The download is available here, along with source, and an explanation of how I developed it, using an unlisted API command and the soundcloud API.</p>
             </section>
-        </div>
-    </article>
+        </article>
+    <div class="eevee-page-spacer" role="presentation"></div>
                 </div>
             </div>
         </main>
