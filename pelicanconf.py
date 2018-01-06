@@ -3,8 +3,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'neko.py'
 SITENAME = u'stderr'
-SITEURL = 'https://nekopy.github.io'
-#SITEURL = 'http://127.0.0.1:8000'
+SITEURL = ''
 
 PATH = 'content'
 
@@ -36,13 +35,10 @@ DEFAULT_PAGINATION = 10
 #RELATIVE_URLS = True
 
 
-## custom
-MARKDOWN = True
-
-THEME='eevee'
+THEME='/home/neko/blog/themes/eevee'
 THEME_PRIMARY='blue_grey'
 THEME_ACCENT='indigo'
 
 MENUITEMS = (('Profile', 'https://github.com/nekopy'),)
 
-STATIC_PATHS = [ 'assets' ]
+STATIC_PATHS = ['assets']
